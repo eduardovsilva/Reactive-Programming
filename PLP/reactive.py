@@ -38,7 +38,7 @@ def gaussian_filter(rad, shape, mode):
 
 def preprocess(res):
     return pipe(
-        ops.map(lambda img: Image.fromarray(img).resize(res)),
+        ops.map(lambda img: Image.fromarray(img)),
         ops.map(lambda img: img.resize(res)),
         ops.map(lambda img: img.convert('L')),
         ops.map(lambda img: np.flipud(np.fliplr(img))),
